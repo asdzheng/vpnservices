@@ -168,7 +168,7 @@ tun0读取出来的ip包，源ip就是26.26.26.1。这个ip设置最好选择这
 
 这个API比较使用频率比较高，但是并不难理解：如果你设置addDnsService("8.8.8.8")，那么接下来那些使用系统的api(如：InetAddress.getByName(String host))去查询dns的请求，默认的dns查询地址就不会走内网网关，而是走我们这里设置的地址8.8.8.8；
 
-**注意**，我们这里设置的Dns地址8.8.8.8，如果这个ip被添加到路由表(接下来介绍的方法addRoute)里面，那面解析流程就变成 App ->dns request -> proxy server -> dns server;
+**注意**，我们这里设置的Dns地址8.8.8.8，如果这个ip被添加到路由表(接下来介绍的方法addRoute)里面，那么解析流程就变成 App ->dns request -> proxy server -> dns server;
 如果这个ip没有添加到路由表里面，那么就是直接发起发往指定的Dns服务器: App -> dns request -> dns server
 
 ## addRoute(InetAddress/String address, int prefixLength)
@@ -203,7 +203,7 @@ tun0读取出来的ip包，源ip就是26.26.26.1。这个ip设置最好选择这
 ## setHttpProxy(ProxyInfo proxyInfo)
 这个方法是安卓api 29以上才有，http代理设置我理解跟在wifi设置里，手动设置http代理的方式一样，一个常见场景是同个网络环境手机抓包http流量，需要设置代理到pc的ip和监听端口；
 
-然而这个http设置之后跟vpn服务设置怎么配合，我并没有实际经验，使用过的人可以分享一下经验；
+然而这个http设置之后跟vpn服务设置怎么配合，我并没有实际使用经验，使用过的人可以分享一下经验；
 
 ## setMtu (int mtu)
 Mtu全程是Maximun Transmission Unit，即表示虚拟网络端口的最大传输单元，如果发送的包长度超过这个数字，则会被分包；这里是设置从虚拟网卡tun0 -> 读取出来的数据包最大字节，超过设置的mtu就会分成多个ip包；
