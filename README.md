@@ -1,6 +1,6 @@
-# Android VpnServices使用总结
+# Android VpnService使用总结
 
-Android系统自带的VpnServices是从4.0开始（API LEVEL 15），自己带了一个帮助在设备上建立VPN连接的解决方案，且不需要root权限，本文将对其做一个简单的介绍，并总结其在实际使用的经验。
+Android系统自带的VpnService是从4.0开始（API LEVEL 15），自己带了一个帮助在设备上建立VPN连接的解决方案，且不需要root权限，本文将对其做一个简单的介绍，并总结其在实际使用的经验。
 
 ### 一、基本原理
 
